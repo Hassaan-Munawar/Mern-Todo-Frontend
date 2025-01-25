@@ -1,7 +1,7 @@
 
 
 const dev = 'http://localhost:4000/'
-const prod = 'https://final-hackathon-lac.vercel.app/'
+const prod = 'https://mern-todo-backend-gules.vercel.app/'
 
 
 const BASE_URL = prod
