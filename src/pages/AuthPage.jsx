@@ -123,7 +123,8 @@ const AuthPage = () => {
                         className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition"
                         disabled={loading}
                     >
-                        {loading ? "Loading..." : isSignUp ? "Sign Up" : "Login"}
+                        {loading ? <div className="flex items-center justify-center">
+                            <div className="w-6 h-6 border-4 border-white border-t-transparent rounded-full animate-spin"></div></div> : isSignUp ? "Sign Up" : "Login"}
                     </button>
                 </form>
                 <div className="mt-4 text-center">

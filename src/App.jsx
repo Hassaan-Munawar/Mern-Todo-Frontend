@@ -11,10 +11,8 @@ function App() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen bg-gray-100">
-        <div className="flex space-x-4">
-          <div className="w-8 h-8 bg-blue-500 rounded-full animate-bounce"></div>
-          <div className="w-8 h-8 bg-blue-500 rounded-full animate-bounce delay-200"></div>
-          <div className="w-8 h-8 bg-blue-500 rounded-full animate-bounce delay-400"></div>
+        <div className="flex items-center justify-center">
+          <div className="w-32 h-32 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
         </div>
       </div>
     );

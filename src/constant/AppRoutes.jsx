@@ -14,6 +14,7 @@ export const AppRoutes = {
     addTask: BASE_URL + "todos",
     getTask: BASE_URL + "todos",
     updateTask: BASE_URL + "todos",
+    updateComplete: BASE_URL + "todos/updateComplete",
     deleteTask: BASE_URL + "todos",
     myInfo: BASE_URL + "userinfo",
 }
