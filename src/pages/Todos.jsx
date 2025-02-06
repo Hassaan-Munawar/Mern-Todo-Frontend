@@ -129,8 +129,8 @@ const Todos = () => {
       {/* Mobile Header */}
       <div className={`sm:hidden flex justify-between items-center p-4 ${darkMode ? "bg-yellow-400 text-black" : "bg-indigo-600 text-white"}  `}>
         <div className="flex items-center">
-      <FontAwesomeIcon icon={faTasks} className="mr-2" />
-        <h1 className="text-xl font-bold">Todo App</h1>
+          <FontAwesomeIcon icon={faTasks} className="mr-2" />
+          <h1 className="text-xl font-bold">Todo App</h1>
         </div>
         <button onClick={() => setSidebarOpen(!sidebarOpen)} className="text-2xl">
           <FontAwesomeIcon icon={faBars} />
@@ -148,7 +148,7 @@ const Todos = () => {
         <div className="mb-6">
           <p className="text-sm font-medium mb-2">Welcome,</p>
           <p className="text-lg font-semibold flex items-center">
-           <img src={user?.picture} className="mr-2 w-12 h-12 rounded-full" />
+            <img src={user?.picture} className="mr-2 w-12 h-12 rounded-full" />
             {user?.fullName}
           </p>
         </div>
@@ -164,11 +164,10 @@ const Todos = () => {
         </button>
         <button
           onClick={toggleDarkMode}
-          className={`w-full py-2 px-4 rounded-lg transition duration-300 ease-in-out flex items-center justify-center ${
-            darkMode
+          className={`w-full py-2 px-4 rounded-lg transition duration-300 ease-in-out flex items-center justify-center ${darkMode
               ? "bg-yellow-400 hover:bg-yellow-500 text-gray-900"
               : "bg-indigo-500 hover:bg-indigo-600 text-white"
-          }`}
+            }`}
         >
           <FontAwesomeIcon icon={darkMode ? faSun : faMoon} className="mr-2" />
           {darkMode ? "Light Mode" : "Dark Mode"}
@@ -190,18 +189,16 @@ const Todos = () => {
                 placeholder="Enter your todo"
                 value={todo}
                 onChange={(e) => setTodo(e.target.value)}
-                className={`flex-grow px-4 py-2 rounded-lg sm:rounded-r-none focus:outline-none mb-2 sm:mb-0 ${
-                  darkMode ? "bg-gray-700 text-white" : "bg-gray-100 text-gray-800"
-                }`}
+                className={`flex-grow px-4 py-2 rounded-lg sm:rounded-r-none focus:outline-none mb-2 sm:mb-0 ${darkMode ? "bg-gray-700 text-white" : "bg-gray-100 text-gray-800"
+                  }`}
               />
               <button
                 onClick={addTodo}
                 disabled={todo.trim().length < 2}
-                className={`px-6 py-2 rounded-lg sm:rounded-l-none transition duration-300 ease-in-out flex items-center justify-center ${
-                  todo.trim().length < 2
+                className={`px-6 py-2 rounded-lg sm:rounded-l-none transition duration-300 ease-in-out flex items-center justify-center ${todo.trim().length < 2
                     ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                     : "bg-green-500 hover:bg-green-600 text-white"
-                }`}
+                  }`}
               >
                 <FontAwesomeIcon icon={faPlus} className="mr-2" />
                 Add
@@ -225,9 +222,8 @@ const Todos = () => {
                     placeholder="Search todos..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className={`w-full px-4 py-2 rounded-lg focus:outline-none ${
-                      darkMode ? "bg-gray-700 text-white" : "bg-gray-100 text-gray-800"
-                    }`}
+                    className={`w-full px-4 py-2 rounded-lg focus:outline-none ${darkMode ? "bg-gray-700 text-white" : "bg-gray-100 text-gray-800"
+                      }`}
                   />
                   <FontAwesomeIcon
                     icon={faSearch}
@@ -238,40 +234,44 @@ const Todos = () => {
               <div className="flex gap-2">
                 <button
                   onClick={() => setFilter("all")}
-                  className={`px-3 py-1 rounded-lg transition duration-300 ease-in-out ${
-                    filter === "all"
-                      ? "bg-blue-500 text-white"
+                  className={`px-3 py-1 rounded-lg transition duration-300 ease-in-out ${filter === "all"
+                      ? darkMode
+                        ? "bg-yellow-400 text-black"
+                        : "bg-blue-500 text-white"
                       : darkMode
                         ? "bg-gray-700 text-white"
                         : "bg-gray-200 text-gray-800"
-                  }`}
+                    }`}
                 >
                   All
                 </button>
                 <button
                   onClick={() => setFilter("active")}
-                  className={`px-3 py-1 rounded-lg transition duration-300 ease-in-out ${
-                    filter === "active"
-                      ? "bg-blue-500 text-white"
+                  className={`px-3 py-1 rounded-lg transition duration-300 ease-in-out ${filter === "active"
+                      ? darkMode
+                        ? "bg-yellow-400 text-black"
+                        : "bg-blue-500 text-white"
                       : darkMode
                         ? "bg-gray-700 text-white"
                         : "bg-gray-200 text-gray-800"
-                  }`}
+                    }`}
                 >
                   Active
                 </button>
                 <button
                   onClick={() => setFilter("completed")}
-                  className={`px-3 py-1 rounded-lg transition duration-300 ease-in-out ${
-                    filter === "completed"
-                      ? "bg-blue-500 text-white"
+                  className={`px-3 py-1 rounded-lg transition duration-300 ease-in-out ${filter === "completed"
+                      ? darkMode
+                        ? "bg-yellow-400 text-black"
+                        : "bg-blue-500 text-white"
                       : darkMode
                         ? "bg-gray-700 text-white"
                         : "bg-gray-200 text-gray-800"
-                  }`}
+                    }`}
                 >
                   Completed
                 </button>
+
               </div>
             </div>
 
@@ -284,11 +284,9 @@ const Todos = () => {
                 {filteredTodos.map((todoData) => (
                   <li
                     key={todoData._id}
-                    className={`p-4 rounded-lg ${
-                      darkMode ? "bg-gray-700" : "bg-gray-100"
-                    } transition duration-300 ease-in-out transform hover:scale-102 ${
-                      todoData.completed=='true' ? "opacity-70" : ""
-                    }`}
+                    className={`p-4 rounded-lg ${darkMode ? "bg-gray-700" : "bg-gray-100"
+                      } transition duration-300 ease-in-out transform hover:scale-102 ${todoData.completed == 'true' ? "opacity-70" : ""
+                      }`}
                   >
                     {editingTodo === todoData._id ? (
                       <div className="flex flex-col sm:flex-row gap-2">
@@ -296,9 +294,8 @@ const Todos = () => {
                           type="text"
                           value={editText}
                           onChange={(e) => setEditText(e.target.value)}
-                          className={`flex-grow px-4 py-2 rounded-lg sm:rounded-r-none focus:outline-none ${
-                            darkMode ? "bg-gray-600 text-white" : "bg-white text-gray-800"
-                          }`}
+                          className={`flex-grow px-4 py-2 rounded-lg sm:rounded-r-none focus:outline-none ${darkMode ? "bg-gray-600 text-white" : "bg-white text-gray-800"
+                            }`}
                         />
                         <button
                           onClick={() => handleSaveEdit(todoData._id)}
@@ -313,7 +310,7 @@ const Todos = () => {
                         <div className="flex items-center flex-grow">
                           <button
                             onClick={() => toggleTodoCompletion(todoData._id, todoData.completed)}
-                            className={`mr-3 text-xl ${todoData.completed=='true' ? "text-green-500" : "text-gray-400"}`}
+                            className={`mr-3 text-xl ${todoData.completed == 'true' ? "text-green-500" : "text-gray-400"}`}
                           >
                             <FontAwesomeIcon icon={faCheckCircle} />
                           </button>
