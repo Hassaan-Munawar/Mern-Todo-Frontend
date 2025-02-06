@@ -127,8 +127,11 @@ const Todos = () => {
       className={`min-h-screen flex flex-col sm:flex-row ${darkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-800"}`}
     >
       {/* Mobile Header */}
-      <div className="sm:hidden flex justify-between items-center p-4 bg-indigo-600 text-white">
+      <div className={`sm:hidden flex justify-between items-center p-4 ${darkMode ? "bg-yellow-400 text-black" : "bg-indigo-600 text-white"}  `}>
+        <div className="flex items-center">
+      <FontAwesomeIcon icon={faTasks} className="mr-2" />
         <h1 className="text-xl font-bold">Todo App</h1>
+        </div>
         <button onClick={() => setSidebarOpen(!sidebarOpen)} className="text-2xl">
           <FontAwesomeIcon icon={faBars} />
         </button>
@@ -138,7 +141,7 @@ const Todos = () => {
       <div
         className={`${sidebarOpen ? "block" : "hidden"} sm:block w-full sm:w-64 p-6 ${darkMode ? "bg-gray-800" : "bg-white"} border-r ${darkMode ? "border-gray-700" : "border-gray-200"}`}
       >
-        <h1 className="text-2xl font-bold mb-6 flex items-center">
+        <h1 className="text-2xl hidden md:flex font-bold mb-6  items-center">
           <FontAwesomeIcon icon={faTasks} className="mr-2" />
           Todo App
         </h1>
