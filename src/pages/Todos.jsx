@@ -145,7 +145,7 @@ const Todos = () => {
         <div className="mb-6">
           <p className="text-sm font-medium mb-2">Welcome,</p>
           <p className="text-lg font-semibold flex items-center">
-            <FontAwesomeIcon icon={faUser} className="mr-2" />
+           <img src={user?.picture} className="mr-2 w-12 h-12 rounded-full" />
             {user?.fullName}
           </p>
         </div>
@@ -344,7 +344,7 @@ const Todos = () => {
               </ul>
             )}
             {!loading && filteredTodos.length === 0 && (
-              <p className="text-center text-gray-500 mt-4">No todos available. Add one to get started!</p>
+              <p className="text-center text-gray-500 mt-4">No todos available.</p>
             )}
           </div>
         </div>

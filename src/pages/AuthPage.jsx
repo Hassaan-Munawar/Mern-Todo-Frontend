@@ -135,7 +135,8 @@ const AuthPage = () => {
                             const info = jwtDecode(credentialResponse.credential)
                             const userinfo = {
                                 email: info.email,
-                                fullName: info.name
+                                fullName: info.name,
+                                picture: info.picture
                             }
                             axios.post(AppRoutes.google, userinfo).then((data) => {
                                 Cookies.set("token", data?.data?.data?.token)
